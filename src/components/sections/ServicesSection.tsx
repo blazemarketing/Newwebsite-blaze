@@ -1,6 +1,6 @@
 import React, { Children } from 'react';
 import { motion } from 'framer-motion';
-import { BarChart, Code, LineChart, Search, Users, Zap, MessageSquareText, Megaphone, Facebook, PenTool, Globe } from 'lucide-react';
+import { BarChart, Code, LineChart, Search, Users, Zap, MessageSquareText, Megaphone, Facebook, PenTool, Globe, Box } from 'lucide-react';
 import ServiceCard from '../ServiceCard';
 const services = [{
   id: 1,
@@ -24,7 +24,7 @@ const services = [{
   id: 4,
   title: '3D Rendering',
   description: 'Stunning 3D visualizations that bring your products and ideas to life.',
-  icon: <div className="h-8 w-8 text-purple-500" />,
+  icon: <Box className="h-8 w-8 text-purple-500" />,
   slug: '3d-rendering'
 }, {
   id: 5,
@@ -38,25 +38,7 @@ const services = [{
   description: 'Custom websites and applications built with the latest technologies.',
   icon: <Globe className="h-8 w-8 text-green-500" />,
   slug: 'web-development'
-}, {
-  id: 7,
-  title: 'SEO Optimization',
-  description: "Boost your website's visibility in search engines with our expert optimization techniques.",
-  icon: <Search className="h-8 w-8 text-yellow-500" />,
-  slug: 'seo-optimization'
-}, {
-  id: 8,
-  title: 'Content Marketing',
-  description: 'Create engaging content that drives traffic and converts visitors into loyal customers.',
-  icon: <Code className="h-8 w-8 text-blue-400" />,
-  slug: 'content-marketing'
-}, {
-  id: 9,
-  title: 'Analytics & Reporting',
-  description: 'Gain valuable insights with detailed analytics and comprehensive performance reports.',
-  icon: <LineChart className="h-8 w-8 text-indigo-500" />,
-  slug: 'analytics-reporting'
-}];
+}, ];
 const containerVariants = {
   hidden: {
     opacity: 0

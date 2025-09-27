@@ -8,7 +8,7 @@ const testimonials = [{
   image: 'https://randomuser.me/api/portraits/women/32.jpg',
   text: 'BlazeMarketingMedia helped us attract 50% more local patients through SEO and Google Ads. Our dental practice has never been busier!',
   rating: 5,
-  logo: '🦷' // Placeholder logo
+  // Placeholder logo
 }, {
   id: 2,
   name: 'Bhargav Patel',
@@ -16,7 +16,7 @@ const testimonials = [{
   image: 'https://randomuser.me/api/portraits/men/44.jpg',
   text: 'They scaled my channel using targeted Meta ads. I grew from 10K to 100K subscribers in months. Their creative team nailed my brand identity.',
   rating: 5,
-  logo: '📱' // Placeholder logo
+  // Placeholder logo
 }, {
   id: 3,
   name: 'Arjun Mehta',
@@ -24,7 +24,7 @@ const testimonials = [{
   image: 'https://randomuser.me/api/portraits/men/67.jpg',
   text: "From 0 to 500 paid signups in 3 months. BlazeMarketingMedia's LLM SEO and performance marketing gave our SaaS exponential growth.",
   rating: 5,
-  logo: '💾' // Placeholder logo
+   // Placeholder logo
 }];
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -83,16 +83,13 @@ export default function TestimonialsSection() {
             boxShadow: '0 10px 25px -5px rgba(124, 58, 237, 0.2)'
           }}>
                 <div className="flex items-center mb-4 justify-between">
-                  <div className="flex items-center">
-                    <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 rounded-full mr-4 border-2 border-purple-500" />
-                    <div>
-                      <h4 className="font-bold group-hover:text-purple-400 transition-colors duration-300">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-sm text-gray-400">
-                        {testimonial.role}
-                      </p>
-                    </div>
+                  <div>
+                    <h4 className="font-bold group-hover:text-purple-400 transition-colors duration-300">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-sm text-gray-400">
+                      {testimonial.role}
+                    </p>
                   </div>
                   <div className="text-2xl opacity-70">{testimonial.logo}</div>
                 </div>
@@ -122,16 +119,13 @@ export default function TestimonialsSection() {
             duration: 0.3
           }}>
               <div className="flex items-center mb-4 justify-between">
-                <div className="flex items-center">
-                  <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].name} className="w-12 h-12 rounded-full mr-4 border-2 border-purple-500" />
-                  <div>
-                    <h4 className="font-bold">
-                      {testimonials[currentIndex].name}
-                    </h4>
-                    <p className="text-sm text-gray-400">
-                      {testimonials[currentIndex].role}
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="font-bold">
+                    {testimonials[currentIndex].name}
+                  </h4>
+                  <p className="text-sm text-gray-400">
+                    {testimonials[currentIndex].role}
+                  </p>
                 </div>
                 <div className="text-2xl opacity-70">
                   {testimonials[currentIndex].logo}

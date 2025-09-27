@@ -10,12 +10,17 @@ const BackgroundAnimation = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+    
     let animationFrameId: number;
     let particles: Particle[] = [];
+    let mouseTimeout: ReturnType<typeof setTimeout>;
+    
     // Mouse interaction radius - reduced for subtlety
     const interactionRadius = 120;
+    
     // Handle mouse move
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
@@ -27,7 +32,6 @@ const BackgroundAnimation = () => {
       clearTimeout(mouseTimeout);
       mouseTimeout = setTimeout(() => setIsActive(false), 2000);
     };
-    let mouseTimeout: ReturnType<typeof setTimeout>;
     // Particle class
     class Particle {
       x: number;
@@ -173,6 +177,8 @@ const BackgroundAnimation = () => {
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
       initParticles();
     };
     window.addEventListener('resize', resizeCanvas);
@@ -201,8 +207,14 @@ const BackgroundAnimation = () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, [isActive, mousePosition]);
-  return <div className="fixed inset-0 z-0 pointer-events-none">
-      <canvas ref={canvasRef} className="opacity-25" />
-    </div>;
+  return (
+    <div className="fixed inset-0 z-0 pointer-events-none">
+      <canvas 
+        ref={canvasRef} 
+        className="opacity-25 w-full h-full" 
+        style={{ display: 'block' }}
+      />
+    </div>
+  );
 };
 export default BackgroundAnimation;

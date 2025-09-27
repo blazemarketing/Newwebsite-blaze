@@ -47,9 +47,7 @@ export default function ContactSection() {
               <div>
                 <h3 className="font-bold mb-1">Our Location</h3>
                 <p className="text-gray-400">
-                  123 Tech Park, Bangalore
-                  <br />
-                  Karnataka, India - 560001
+                  Chennai, India
                 </p>
               </div>
             </div>
@@ -60,9 +58,9 @@ export default function ContactSection() {
               <div>
                 <h3 className="font-bold mb-1">Email Us</h3>
                 <p className="text-gray-400">
-                  info@boostly.com
+                  info@blazemarketingmedia.com
                   <br />
-                  support@boostly.com
+                 
                 </p>
               </div>
             </div>
@@ -73,9 +71,9 @@ export default function ContactSection() {
               <div>
                 <h3 className="font-bold mb-1">Call Us</h3>
                 <p className="text-gray-400">
-                  +91 98765 43210
+                  +91 9502055104
                   <br />
-                  +91 87654 32109
+                  
                 </p>
               </div>
             </div>
@@ -102,8 +100,8 @@ export default function ContactSection() {
           }} whileTap={{
             scale: 0.98
           }}>
-              <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-lg font-medium hover:opacity-90 transition-all duration-300">
-                Contact Us Form
+              <a href="https://wa.me/919502055104" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-lg font-medium hover:opacity-90 transition-all duration-300">
+                Contact Us on WhatsApp
                 <ExternalLink className="ml-2 w-4 h-4" />
               </a>
             </motion.div>

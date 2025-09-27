@@ -65,10 +65,10 @@ export default function CTASection() {
         }} whileTap={{
           scale: 0.98
         }}>
-            <button className="px-8 py-4 text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full font-medium text-lg flex items-center justify-center mx-auto hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+            <a href="https://wa.me/919502055104" target="_blank" rel="noopener noreferrer" className="px-8 py-4 text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full font-medium text-lg flex items-center justify-center mx-auto hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
               Get Started Now
               <ArrowRight className="ml-2 w-5 h-5" />
-            </button>
+            </a>
           </motion.div>
           <motion.p className="text-gray-400 mt-6 text-sm" initial={{
           opacity: 0

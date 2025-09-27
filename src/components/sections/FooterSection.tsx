@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronRight } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronRight, X } from 'lucide-react';
 export default function FooterSection() {
   return <footer className="bg-gray-900/70 pt-16 pb-8 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,20 +23,11 @@ export default function FooterSection() {
               solutions that deliver real results.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a href="https://www.instagram.com/blazemarketingmedia/" className="text-gray-400 hover:text-white transition-colors duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a href="https://www.linkedin.com/company/blazemarketingmedia/posts/?feedView=all" className="text-gray-400 hover:text-white transition-colors duration-300">
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                <Youtube className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
@@ -101,33 +92,39 @@ export default function FooterSection() {
             <h3 className="font-bold mb-6">Services</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
+                <a href="#/services/google-ads" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
                   <ChevronRight className="w-4 h-4 mr-1" />
-                  SEO Optimization
+                  Google Ads
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
+                <a href="#/services/llm-seo" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
                   <ChevronRight className="w-4 h-4 mr-1" />
-                  Content Marketing
+                  LLM SEO
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
+                <a href="#/services/meta-ads" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
                   <ChevronRight className="w-4 h-4 mr-1" />
-                  Social Media Growth
+                  Meta Ads
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
+                <a href="#/services/graphic-designing" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
                   <ChevronRight className="w-4 h-4 mr-1" />
-                  Analytics & Reporting
+                  Graphic Designing
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
+                <a href="#/services/web-development" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
                   <ChevronRight className="w-4 h-4 mr-1" />
-                  Performance Optimization
+                  Web Development
+                </a>
+              </li>
+              <li>
+                <a href="#/services/3d-rendering" className="text-gray-400 hover:text-white hover:underline hover:translate-y-[-2px] inline-flex items-center transition-all duration-300">
+                  <ChevronRight className="w-4 h-4 mr-1" />
+                  3D Rendering
                 </a>
               </li>
             </ul>
@@ -148,20 +145,17 @@ export default function FooterSection() {
             <ul className="space-y-3">
               <li className="text-gray-400">
                 <strong className="text-white">Address:</strong>
-                <br />
-                123 Tech Park, Bangalore
-                <br />
-                Karnataka, India - 560001
+                Chennai, India
               </li>
               <li className="text-gray-400">
                 <strong className="text-white">Phone:</strong>
                 <br />
-                +91 98765 43210
+                +91 9502055104
               </li>
               <li className="text-gray-400">
                 <strong className="text-white">Email:</strong>
                 <br />
-                info@boostly.com
+                info@BlazeMarketingMedia.com
               </li>
               <li className="text-gray-400">
                 <strong className="text-white">Working Hours:</strong>
@@ -182,7 +176,7 @@ export default function FooterSection() {
         delay: 0.5
       }}>
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Boostly. All rights reserved.
+            © {new Date().getFullYear()} BlazeMarketingmedia. All rights reserved.
           </p>
           <div className="flex justify-center mt-4 space-x-6">
             <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors duration-300">

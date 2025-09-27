@@ -12,6 +12,7 @@ interface CursorState {
 const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorRippleRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
   // Use motion values for smooth animation
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -32,7 +33,25 @@ const CustomCursor = () => {
     ctaHovered: false
   });
   useEffect(() => {
-    // Hide default cursor
+    // Detect if device is mobile/touch device
+    const checkMobile = () => {
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isMobileScreen = window.innerWidth <= 768;
+      setIsMobile(isTouchDevice || isMobileScreen);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    // Don't show custom cursor on mobile devices
+    if (isMobile) {
+      document.body.style.cursor = 'auto';
+      return () => {
+        window.removeEventListener('resize', checkMobile);
+      };
+    }
+    
+    // Hide default cursor on desktop
     document.body.style.cursor = 'none';
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
@@ -144,8 +163,14 @@ const CustomCursor = () => {
       document.removeEventListener('mouseover', handleMouseOver);
       document.removeEventListener('mouseout', handleMouseOut);
       document.removeEventListener('click', handleClick);
+      window.removeEventListener('resize', checkMobile);
     };
-  }, []);
+  }, [isMobile]);
+  // Don't render cursor on mobile devices
+  if (isMobile) {
+    return null;
+  }
+  
   return <>
       <div ref={cursorRippleRef} className="fixed inset-0 pointer-events-none z-[9999]" />
       <motion.div ref={cursorRef} className={`fixed pointer-events-none z-[9999] flex items-center justify-center rounded-full mix-blend-difference

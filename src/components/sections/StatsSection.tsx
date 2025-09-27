@@ -1,4 +1,4 @@
-import React, { useEffect, Children } from 'react';
+import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
@@ -73,10 +73,7 @@ const StatsSection = () => {
                   {inView && <>
                       {stat.prefix && <span>{stat.prefix}</span>}
                       <CountUp start={0} end={stat.value} duration={2.5} separator="," decimals={0} formattingFn={stat.formatter}
-                // Add easing effect for slot machine feel
                 useEasing={true} easingFn={(t, b, c, d) => {
-                  // Custom easing function for "slot machine" effect
-                  // t: current time, b: start value, c: change in value, d: duration
                   const ts = (t /= d) * t;
                   const tc = ts * t;
                   return b + c * (tc + -3 * ts + 3 * t);
