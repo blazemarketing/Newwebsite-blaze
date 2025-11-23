@@ -1,57 +1,84 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
-const testimonials = [{
-  id: 1,
-  name: 'Dr. Priya Sharma',
-  role: 'Owner, Sri Laxmi Dental',
-  image: 'https://randomuser.me/api/portraits/women/32.jpg',
-  text: 'BlazeMarketingMedia helped us attract 50% more local patients through SEO and Google Ads. Our dental practice has never been busier!',
-  rating: 5,
-  // Placeholder logo
-}, {
-  id: 2,
-  name: 'Bhargav Patel',
-  role: 'Content Creator',
-  image: 'https://randomuser.me/api/portraits/men/44.jpg',
-  text: 'They scaled my channel using targeted Meta ads. I grew from 10K to 100K subscribers in months. Their creative team nailed my brand identity.',
-  rating: 5,
-  // Placeholder logo
-}, {
-  id: 3,
-  name: 'Arjun Mehta',
-  role: 'CEO, Nexus Database',
-  image: 'https://randomuser.me/api/portraits/men/67.jpg',
-  text: "From 0 to 500 paid signups in 3 months. BlazeMarketingMedia's LLM SEO and performance marketing gave our SaaS exponential growth.",
-  rating: 5,
-   // Placeholder logo
-}];
+import { Star, Quote } from 'lucide-react';
+
+const testimonials = [ 
+  {
+    id: 1,
+    name: 'Bhargav',
+    role: 'Music Producer',
+    image: '/src/public/testimonials/bhargav-music.jpg',
+    videoPath: '/src/public/pimpom.mp4',
+    text: 'When I dropped my track "Pim Pom", I honestly didn\'t expect it to blow up the way it did. The promo ideas they helped me with felt so simple but somehow worked like crazy. Within a few weeks, the song crossed a million views.',
+    rating: 5,
+    service: 'Music Promotion'
+  }, {
+    id: 2,
+    name: 'Arjun Mehta',
+    role: 'CEO, Nexus Database',
+    image: '/src/public/testimonials/arjun-mehta.jpg',
+    videoPath: '/src/public/testimonials/videos/arjun-mehta-review.mp4',
+    text: "From 0 to 500 paid signups in 3 months. BlazeMarketingMedia's LLM SEO and performance marketing gave our SaaS exponential growth.",
+    rating: 5,
+    service: 'LLM SEO & Performance Marketing'
+  }, {
+    id: 3,
+    name: 'Hari Venkatesh',
+    role: 'Business Owner',
+    image: '/src/public/testimonials/hari-venkatesh.jpg',
+    videoPath: '/src/public/testimonials/videos/hari-venkatesh-review.mp4',
+    text: "I don't like flashy marketing, and thankfully the whole approach was simple and minimal. Felt very aligned with how we operate.",
+    rating: 5,
+    service: 'Web Development'
+  }, {
+    id: 4,
+    name: 'Neha S. Prakash',
+    role: 'Service Provider',
+    image: '/src/public/testimonials/neha-prakash.jpg',
+    videoPath: '/src/public/testimonials/videos/neha-prakash-review.mp4',
+    text: 'My old site was honestly embarrassing. The new version just feels clean and modern, and we actually get booking requests now.',
+    rating: 5,
+    service: 'Web Development'
+  }, {
+    id: 5,
+    name: 'Abhishek',
+    role: 'Sicily CEO',
+    image: '/src/public/Silicy.webp',
+    videoPath: '/src/public/testimonials/videos/abhishek-review.mp4',
+    text: 'The way my portfolio was reshaped made me look way more put-together. It helped me land two more international gigs.',
+    rating: 5,
+    service: 'Portfolio Design'
+  }, {
+    id: 6,
+    name: 'Pawel',
+    role: 'Business Owner',
+    image: '/src/public/mate.jpg',
+    videoPath: '/src/public/testimonials/videos/pawel-review.mp4',
+    text: 'After the portfolio cleanup, people finally "got" the mood and lighting choices. Approvals became way faster.',
+    rating: 5,
+    service: '3D Rendering Portfolio'
+  }
+];
+
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const nextTestimonial = () => {
-    setDirection(1);
-    setCurrentIndex(prev => (prev + 1) % testimonials.length);
-  };
-  const prevTestimonial = () => {
-    setDirection(-1);
-    setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-  return <section id="testimonials" className="py-20 bg-black relative">
-      {/* Background glow */}
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  useEffect(() => {
+    if (isVideoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isVideoPlaying]);
+
+  return (
+    <section id="testimonials" className="py-20 bg-black relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[50%] bg-purple-900/20 blur-[120px] rounded-full opacity-30"></div>
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div className="text-center mb-16" initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.5
-      }}>
+        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <div className="inline-block px-4 py-1 mb-6 rounded-full bg-gray-800/50 border border-gray-700 text-xs font-medium">
             CLIENT STORIES
           </div>
@@ -59,104 +86,104 @@ export default function TestimonialsSection() {
             What Our <span className="text-purple-400">Clients Say</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Real results from businesses across India who have transformed their
-            digital presence with our solutions.
+            Real results from businesses who have transformed their digital presence with our solutions.
           </p>
         </motion.div>
-        <div className="relative max-w-4xl mx-auto">
-          {/* Desktop view: Grid layout */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6">
-            {testimonials.map(testimonial => <motion.div key={testimonial.id} className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:bg-gray-800/70 transition-all duration-300 group" initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.5,
-            delay: testimonial.id * 0.1
-          }} whileHover={{
-            y: -5,
-            scale: 1.02,
-            boxShadow: '0 10px 25px -5px rgba(124, 58, 237, 0.2)'
-          }}>
-                <div className="flex items-center mb-4 justify-between">
-                  <div>
-                    <h4 className="font-bold group-hover:text-purple-400 transition-colors duration-300">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-sm text-gray-400">
-                      {testimonial.role}
-                    </p>
+
+        {/* Infinite Carousel */}
+        <div className="relative max-w-6xl mx-auto">
+          <div className="overflow-hidden">
+            <motion.div 
+              className="flex"
+              animate={{ x: `-${currentIndex * 100}%` }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
+                  <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 mx-auto max-w-4xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                      {/* Content */}
+                      <div className="order-2 lg:order-1">
+                        <div className="mb-6">
+                          <h4 className="text-2xl font-bold text-white mb-2">
+                            {testimonial.name}
+                          </h4>
+                          <p className="text-gray-400 mb-3">
+                            {testimonial.role}
+                          </p>
+                          <span className="text-sm text-purple-400 bg-purple-400/10 px-3 py-1 rounded-full">
+                            {testimonial.service}
+                          </span>
+                        </div>
+                        
+                        <div className="flex mb-4">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                          ))}
+                        </div>
+                        
+                        <div className="relative">
+                          <Quote className="absolute -top-2 -left-2 w-8 h-8 text-purple-500/20" />
+                          <p className="text-gray-300 text-lg leading-relaxed relative z-10 mb-4">
+                            {testimonial.text}
+                          </p>
+                          {testimonial.image && (
+                            <div className="mt-4">
+                              <img 
+                                src={testimonial.image} 
+                                alt={`${testimonial.name} testimonial`}
+                                className="w-full max-w-sm h-auto rounded-lg border border-gray-700 object-cover"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = 'none';
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      
+                      {/* Video */}
+                      <div className="order-1 lg:order-2">
+                        {testimonial.videoPath && (
+                          <div className="w-full max-w-md mx-auto">
+                            <video 
+                              className="w-full h-auto rounded-lg border border-gray-700"
+                              controls
+                              preload="metadata"
+                              onPlay={() => setIsVideoPlaying(true)}
+                              onPause={() => setIsVideoPlaying(false)}
+                              onEnded={() => setIsVideoPlaying(false)}
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                              }}
+                            >
+                              <source src={testimonial.videoPath} type="video/mp4" />
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-2xl opacity-70">{testimonial.logo}</div>
                 </div>
-                <div className="flex mb-3">
-                  {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}
-                </div>
-                <div className="relative">
-                  <Quote className="absolute top-0 left-0 w-6 h-6 text-purple-500/20 -translate-x-2 -translate-y-2" />
-                  <p className="text-gray-300 relative z-10">
-                    {testimonial.text}
-                  </p>
-                </div>
-              </motion.div>)}
-          </div>
-          {/* Mobile view: Carousel */}
-          <div className="md:hidden">
-            <motion.div key={currentIndex} className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6" initial={{
-            opacity: 0,
-            x: direction * 50
-          }} animate={{
-            opacity: 1,
-            x: 0
-          }} exit={{
-            opacity: 0,
-            x: -direction * 50
-          }} transition={{
-            duration: 0.3
-          }}>
-              <div className="flex items-center mb-4 justify-between">
-                <div>
-                  <h4 className="font-bold">
-                    {testimonials[currentIndex].name}
-                  </h4>
-                  <p className="text-sm text-gray-400">
-                    {testimonials[currentIndex].role}
-                  </p>
-                </div>
-                <div className="text-2xl opacity-70">
-                  {testimonials[currentIndex].logo}
-                </div>
-              </div>
-              <div className="flex mb-3">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}
-              </div>
-              <div className="relative">
-                <Quote className="absolute top-0 left-0 w-6 h-6 text-purple-500/20 -translate-x-2 -translate-y-2" />
-                <p className="text-gray-300 relative z-10">
-                  {testimonials[currentIndex].text}
-                </p>
-              </div>
+              ))}
             </motion.div>
-            <div className="flex justify-center mt-6 space-x-2">
-              {testimonials.map((_, index) => <button key={index} onClick={() => {
-              setDirection(index > currentIndex ? 1 : -1);
-              setCurrentIndex(index);
-            }} className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-purple-500' : 'bg-gray-600'}`} aria-label={`Go to testimonial ${index + 1}`} />)}
-            </div>
-            <div className="flex justify-between mt-6">
-              <button onClick={prevTestimonial} className="p-2 rounded-full bg-gray-800 hover:bg-gray-700" aria-label="Previous testimonial">
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button onClick={nextTestimonial} className="p-2 rounded-full bg-gray-800 hover:bg-gray-700" aria-label="Next testimonial">
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+          </div>
+          
+          {/* Indicators */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? 'bg-purple-500 scale-125' : 'bg-gray-600 hover:bg-gray-500'
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

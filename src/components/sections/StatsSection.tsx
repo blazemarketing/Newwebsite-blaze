@@ -39,13 +39,13 @@ const StatsSection = () => {
   };
   const statBoxes = [{
     title: 'Clients',
-    value: 50,
+    value: 15,
     suffix: '+',
     description: 'Businesses Transformed',
     color: 'from-blue-600 to-blue-400'
   }, {
     title: 'Revenue Generated',
-    value: 500000,
+    value: 200000,
     prefix: '₹',
     suffix: '+',
     formatter: (value: number) => value.toLocaleString('en-IN'),

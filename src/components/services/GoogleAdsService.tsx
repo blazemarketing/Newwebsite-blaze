@@ -327,58 +327,7 @@ const GoogleAdsService = () => {
           </div>
         </section>
 
-        {/* Services Section */}
-        <section id="services" className="py-24 relative z-10">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Our Google Ads <span className="text-purple-400">Services</span>
-              </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
-                Comprehensive Google Ads management services designed to maximize your ROI and drive sustainable growth.
-              </p>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-8 hover:bg-gray-800/70 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10 group cursor-pointer"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="relative">
-                    <div className="absolute left-0 top-0 w-1 h-full bg-purple-500 rounded-full"></div>
-                    <div className="pl-6">
-                      <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                        {service.category}
-                      </span>
-                      <h3 className="text-xl font-bold mt-2 mb-4 group-hover:text-purple-400 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-400 mb-6 leading-relaxed">
-                        {service.description}
-                      </p>
-                      <div className="flex items-center text-purple-400">
-                        <service.icon className="w-5 h-5 mr-2" />
-                        <span className="text-sm font-medium">Learn More</span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+
 
         {/* Google Ads Campaign Types Section */}
         <section className="py-24 relative z-10">
